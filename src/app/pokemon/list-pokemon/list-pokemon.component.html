@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row">
+    <div
+      *ngFor="let pokemon of pokemonList"
+      class="shadow-lg p-3 mb-4 card col-lg-4"
+      pkmnBorderCard
+      (click)="goToPokemon(pokemon)"
+    >
+      <div class="row g-0 my-4">
+        <div class="card-img-left col-md-4">
+          <img
+            src="{{ pokemon.picture }}"
+            class="img-fluid rounded-start"
+            alt="{{ pokemon.name }}"
+          />
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5 class="card-title">{{ pokemon.name }}</h5>
+            <span
+              *ngFor="let type of pokemon.types"
+              class="card-text  badge rounded-pill {{
+                type | pokemonTypeColor
+              }}"
+            >
+              {{ type }}
+            </span>
+            <p class="card-text">
+              <small class="text-body-secondary">{{
+                pokemon.created | date : "dd.MM.y"
+              }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <div *ngIf="pokemon" class="row justify-content-center">
+    <div class="col-lg shadow-lg p-3 mb-4 card col-lg-4">
+      <h2 class="text-center">{{ pokemon.name }}</h2>
+      <div class="card">
+        <div class="card-image d-flex justify-content-center my-4">
+          <img [src]="pokemon.picture" class="img-fluid" />
+        </div>
+        <div class="card-body py-4">
+          <div class="card py-4 text-center">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Nom</td>
+                  <td>
+                    <strong>{{ pokemon.name }}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Points de vie</td>
+                  <td>
+                    <strong>{{ pokemon.hp }}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dégâts</td>
+                  <td>
+                    <strong>{{ pokemon.cp }}</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Types</td>
+                  <td>
+                    <span
+                      *ngFor="let type of pokemon.types"
+                      class=" card-text badge rounded-pill {{
+                        type | pokemonTypeColor
+                      }}"
+                      >{{ type }}</span
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <td>Date de création</td>
+                  <td>
+                    <em>{{ pokemon.created | date : "dd/MM/yyyy" }}</em>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="py-3 text-center">
+            <button type="button" class="btn btn-secondary">
+              <a
+                (click)="goBack()"
+                href=""
+                class="text-decoration-none text-white"
+                >Retour</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h4 *ngIf="!pokemon" class="text-center">Aucun pokémon à afficher !</h4>
+</div>
