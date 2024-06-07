@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { POKEMONS } from "../mock-pokemons-list";
 import { Pokemon } from "../pokemon";
 import { PokemonService } from "../pokemon.service";
 
@@ -21,7 +20,9 @@ export class DetailPokemonComponent implements OnInit {
   ngOnInit() {
     const pokemonId: string | null = this.route.snapshot.paramMap.get("id");
     if (pokemonId) {
-      this.pokemon = this.pokemonService.getPokemonById(+pokemonId);
+      this.pokemonService
+        .getPokemonById(+pokemonId)
+        .subscribe((pokemon) => (this.pokemon = pokemon));
     }
   }
   goBack() {
@@ -30,5 +31,11 @@ export class DetailPokemonComponent implements OnInit {
 
   goEdit(pokemon: Pokemon) {
     this.router.navigate(["edit/pokemon", pokemon.id]);
+  }
+
+  goDelete(pokemon: Pokemon) {
+    this.pokemonService
+      .deletePokemonById(pokemon.id)
+      .subscribe(() => this.goBack());
   }
 }
