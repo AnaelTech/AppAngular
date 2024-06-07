@@ -1,4 +1,4 @@
-# PokeAngular 
+# PokeAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
@@ -11,3 +11,5 @@ Test Angular avec comme tuto la vidéo Youtube suivante : [YoutubeTutoAngular](h
 # Project
 
 Actuellement, les données utilisées sont brutes. À l'avenir, je voudrais utiliser une API Pokémon.
+
+J'ai eu quelques problèmes avec des bouts de code dépriciés, Surtout pour l'authentification avec l'authGuard qui est passé en CanActivateFn et qui était en Can Active

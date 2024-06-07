@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 mb-4">
+      <div class="card mt-5 py-5">
+        <div class="card-header text-center">
+          <h5>Page de connexion</h5>
+          <p>
+            <em>{{ message }}</em>
+          </p>
+        </div>
+        <div class="card-body">
+          <form #loginForm="ngForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                [(ngModel)]="name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                [(ngModel)]="password"
+                name="password"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <button
+            *ngIf="!auth.isLoggedIn"
+            (click)="login()"
+            class="btn btn-primary"
+          >
+            Se connecter
+          </button>
+          <button
+            *ngIf="auth.isLoggedIn"
+            (click)="logout()"
+            class="btn btn-secondary"
+          >
+            Se déconnecter
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
