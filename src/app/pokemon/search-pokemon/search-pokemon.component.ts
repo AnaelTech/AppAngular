@@ -9,10 +9,13 @@ import {
   switchMap,
 } from "rxjs";
 import { PokemonService } from "../pokemon.service";
+import { NgFor, AsyncPipe } from "@angular/common";
 
 @Component({
   selector: "app-search-pokemon",
   templateUrl: "./search-pokemon.component.html",
+  standalone: true,
+  imports: [NgFor, AsyncPipe],
 })
 export class SearchPokemonComponent implements OnInit {
   //flux de donnée dans le temps

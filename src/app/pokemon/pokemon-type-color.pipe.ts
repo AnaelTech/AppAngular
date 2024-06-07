@@ -6,7 +6,10 @@ import { Pipe, PipeTransform } from "@angular/core";
  * Exemple d'utilisation:
  *   {{ pokemon.type | pokemonTypeColor }}
  */
-@Pipe({ name: "pokemonTypeColor" })
+@Pipe({
+    name: "pokemonTypeColor",
+    standalone: true
+})
 export class PokemonTypeColorPipe implements PipeTransform {
   transform(type: string): string {
     let color: string;
