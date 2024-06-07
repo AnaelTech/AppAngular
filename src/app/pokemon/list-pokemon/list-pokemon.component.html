@@ -1,8 +1,10 @@
 <div class="container mt-5">
   <div class="row">
+    <app-search-pokemon></app-search-pokemon>
+
     <div
       *ngFor="let pokemon of pokemonList"
-      class="shadow-lg p-3 mb-4 card col-lg-4"
+      class="shadow-lg p-3 mb-4 card col-lg-4 mt-3"
       pkmnBorderCard
       (click)="goToPokemon(pokemon)"
     >
